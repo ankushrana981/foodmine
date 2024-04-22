@@ -6,11 +6,12 @@ import { CurrencyPipe, NgForOf } from '@angular/common';
 import { StarRatingConfigService, StarRatingModule } from 'angular-star-rating';
 import { SearchComponent } from '../../shared/search/search.component';
 import { TagsComponent } from '../../shared/tags/tags.component';
+import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, NgForOf, StarRatingModule, CurrencyPipe, SearchComponent,TagsComponent],
+  imports: [RouterModule, NgForOf, StarRatingModule, CurrencyPipe, SearchComponent,TagsComponent,NotFoundComponent],
   providers: [StarRatingConfigService, FoodService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

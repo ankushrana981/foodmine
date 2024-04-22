@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
 cardQuantity:number= 0;
 constructor(cardService:CartService) {
 cardService.getCartObservable().subscribe((newCart)=>{
+  console.log(newCart,"newCart before return")
  return this.cardQuantity = newCart.items.length;
 })
 }

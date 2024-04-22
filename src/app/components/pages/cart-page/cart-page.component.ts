@@ -5,11 +5,12 @@ import { Cart } from '../../shared/models/cart';
 import { CartItem } from '../../shared/models/cartItem';
 import { TitleComponent } from '../../../component/shared/title/title.component';
 import { CurrencyPipe, NgForOf } from '@angular/common';
+import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 
 @Component({
   selector: 'app-cart-page',
   standalone: true,
-  imports: [RouterModule, TitleComponent, CurrencyPipe, NgForOf],
+  imports: [RouterModule, TitleComponent,NotFoundComponent, CurrencyPipe, NgForOf],
   providers:[CartService],
   templateUrl: './cart-page.component.html',
   styleUrl: './cart-page.component.css'
