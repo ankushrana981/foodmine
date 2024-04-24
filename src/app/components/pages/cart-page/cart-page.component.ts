@@ -3,9 +3,9 @@ import { RouterModule } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
 import { Cart } from '../../shared/models/cart';
 import { CartItem } from '../../shared/models/cartItem';
-import { TitleComponent } from '../../../component/shared/title/title.component';
 import { CurrencyPipe, NgForOf } from '@angular/common';
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
+import { TitleComponent } from '../../shared/title/title.component';
 
 @Component({
   selector: 'app-cart-page',

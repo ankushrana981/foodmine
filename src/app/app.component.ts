@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { StarRatingModule } from 'angular-star-rating';
 import { HeaderComponent } from './components/shared/header/header.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HeaderComponent,StarRatingModule],
+  imports: [RouterOutlet,HeaderComponent,StarRatingModule, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

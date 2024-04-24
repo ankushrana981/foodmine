@@ -3,15 +3,19 @@
       <a routerLink="/" class="logo">Food Mine!</a>
       <nav>
          <ul>
+           @if(!username){
             <li>
-               <a routerLink="/">Login</a>
+               <a routerLink="/login">Login</a>
             </li>
+           } 
             <li class="menu-container">
-               <a routerLink="/dashboard">Ankush</a>
+               @if(username){
+                  <a routerLink="/">{{username}}</a>
+               }
                <div class="menu">
-                  <a routerLink="/profile">Profile</a>
+                  <a routerLink="/">Profile</a>
                   <a routerLink="/orders">Orders</a>
-                  <a>Logout</a>
+                  <a (click)="logout()">Logout</a>
                </div>
             </li>
             <li>

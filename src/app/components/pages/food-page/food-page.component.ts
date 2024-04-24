@@ -19,8 +19,10 @@ export class FoodPageComponent {
   constructor(private route: ActivatedRoute, private service:FoodService
     ,private cartService:CartService , private router: Router) {
     this.route.params.subscribe(params=>{
-     this.food = this.service.getFoodById(params.id)
-     console.log(this.food,"food Data")
+    this.service.getFoodById(params.id).subscribe(food=>{
+      this.food =food
+      console.log(this.food,"food Data")
+    })
     })
   }
   addToCart(){

@@ -3,6 +3,7 @@ import { Tag } from '../models/tag';
 import { FoodService } from '../../../services/food.service';
 import { NgForOf, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tags',
@@ -15,6 +16,10 @@ import { RouterModule } from '@angular/router';
 export class TagsComponent {
   tags: Tag[] = [];
   constructor(private foodservice: FoodService){
-    this.tags = this.foodservice.getAllTags()
+    let tagsObservable: Observable<Tag[]>;
+    tagsObservable = this.foodservice.getAllTags();
+    tagsObservable.subscribe(tags => {
+      this.tags = tags;
+    });
   }
 }

@@ -7,11 +7,12 @@ import { StarRatingConfigService, StarRatingModule } from 'angular-star-rating';
 import { SearchComponent } from '../../shared/search/search.component';
 import { TagsComponent } from '../../shared/tags/tags.component';
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, NgForOf, StarRatingModule, CurrencyPipe, SearchComponent,TagsComponent,NotFoundComponent],
+  imports: [RouterModule, NgForOf, StarRatingModule, CurrencyPipe, SearchComponent, TagsComponent, NotFoundComponent],
   providers: [StarRatingConfigService, FoodService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -19,18 +20,22 @@ import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 export class HomeComponent implements OnInit {
   foods: Food[] = []
 
-  constructor(private service: FoodService, private route: ActivatedRoute) {
-    this.route.params.subscribe(param => {
+  constructor(private service: FoodService, route: ActivatedRoute) {
+    route.params.subscribe(param => {
+      let foodObservable: Observable<Food[]>;
       if (param.searchTerm) {
-        this.foods = this.service.getAllFoodAfterFilter(param.searchTerm)
-      } else if (param.tag){
+        foodObservable = this.service.getAllFoodAfterFilter(param.searchTerm)
+      } else if (param.tag) {
         console.log(param.tag)
-        this.foods = this.service.getAllFoodByTag(param.tag)
-        console.log(this.foods,"foods")
-      } 
-      else {
-        this.foods = service.getAll()
+        foodObservable = this.service.getAllFoodByTag(param.tag)
+        console.log(this.foods, "foods")
       }
+      else {
+        foodObservable = service.getAll()
+      }
+      foodObservable.subscribe(food => {
+        this.foods = food;
+      })
     })
   }
 
