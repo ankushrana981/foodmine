@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TitleComponent } from '../../shared/title/title.component';
 import { UserService } from '../../../services/user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule,NgIf, TitleComponent],
+  imports: [FormsModule,ReactiveFormsModule,NgIf, TitleComponent, RouterModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })

@@ -3,6 +3,8 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { FoodPageComponent } from './components/pages/food-page/food-page.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
+import { RegisterComponent } from './components/pages/register/register.component';
+import { CheckoutComponent } from './components/pages/checkout/checkout.component';
 
 export const routes: Routes = [
           {
@@ -28,6 +30,14 @@ export const routes: Routes = [
           {
                     path:'login',
                     component: LoginPageComponent,
+          },
+          {
+                    path:'register',
+                    component:RegisterComponent
+          },
+          {
+                    path:'checkout',
+                    component:CheckoutComponent
           }
 
 ];

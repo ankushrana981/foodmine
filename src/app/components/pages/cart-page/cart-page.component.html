@@ -1,9 +1,9 @@
 <app-title title="Cart Page" margin="1.5rem 0 0 2.5rem"></app-title>
 <app-not-found [visible]="!cart || !cart.items.length" notFoundMessage="Card is Empty!"
   resetLinkText="Go to Homepage"></app-not-found>
-<div class="container">
+<div class="container" >
   <ul>
-    <li *ngFor="let cartItem of cart.items">
+    <li *ngFor="let cartItem of cart?.items">
       <div>
         <img [src]="cartItem.food.imageUrl" [alt]="cartItem.food.name">
       </div>

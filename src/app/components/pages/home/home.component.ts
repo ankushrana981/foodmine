@@ -8,6 +8,7 @@ import { SearchComponent } from '../../shared/search/search.component';
 import { TagsComponent } from '../../shared/tags/tags.component';
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { Observable } from 'rxjs';
+import { LoadingComponent } from '../../shared/loading/loading.component';
 
 @Component({
   selector: 'app-home',
