@@ -21,7 +21,6 @@ export class FoodPageComponent {
     this.route.params.subscribe(params=>{
     this.service.getFoodById(params.id).subscribe(food=>{
       this.food =food
-      console.log(this.food,"food Data")
     })
     })
   }

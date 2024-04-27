@@ -21,7 +21,6 @@ export class UserService {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(tap({
       next: (user: any) => {
         this.setUserToLocalStorage(user.data)
-        console.log(user.data, "user deatils")
         this.userSubject.next(user.data);
         this.toastrService.success(
           `Welcome to FoodMine ${user.data.name}`,
@@ -71,5 +70,8 @@ export class UserService {
     const userJson = localStorage.getItem('User');
     return userJson? JSON.parse(userJson): new User();
   }
+}
+get CurrentUser(){
+  return this.userSubject.value;
 }
 }

@@ -37,7 +37,9 @@ export class CartService {
     this.cart = new Cart();
     this.setCartTolocalStorage();
   }
-
+  get Cart():Cart{
+    return this.cartSubject.value;
+  }
   getCartObservable():Observable<Cart>{
     return this.cartSubject.asObservable();
   }

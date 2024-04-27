@@ -13,10 +13,9 @@ import { RouterModule } from '@angular/router';
 })
 export class LoadingComponent implements OnInit {
   isLoading!:boolean;
-  constructor(private loaderService:LoaderService) {
-    this.loaderService.isLoading.subscribe((isLoading)=>{
+  constructor(loaderService:LoaderService) {
+    loaderService.isLoading.subscribe((isLoading)=>{
       this.isLoading = isLoading;
-      console.log(this.isLoading,"Loading");
     })
    }
   ngOnInit(): void {

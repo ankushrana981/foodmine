@@ -8,7 +8,6 @@ import { SearchComponent } from '../../shared/search/search.component';
 import { TagsComponent } from '../../shared/tags/tags.component';
 import { NotFoundComponent } from '../../shared/not-found/not-found.component';
 import { Observable } from 'rxjs';
-import { LoadingComponent } from '../../shared/loading/loading.component';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +26,6 @@ export class HomeComponent implements OnInit {
       if (param.searchTerm) {
         foodObservable = this.service.getAllFoodAfterFilter(param.searchTerm)
       } else if (param.tag) {
-        console.log(param.tag)
         foodObservable = this.service.getAllFoodByTag(param.tag)
         console.log(this.foods, "foods")
       }

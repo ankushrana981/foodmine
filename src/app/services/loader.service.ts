@@ -8,13 +8,16 @@ export class LoaderService {
   private loadingSubject = new BehaviorSubject<boolean>(false)
   constructor() { }
 
-  showLoading(){
+  showLoading() {
     this.loadingSubject.next(true);
   }
-  hideLoading(){
+  hideLoading() {
     this.loadingSubject.next(false);
   }
-  get isLoading(){
+  get isLoadingValue() {
+    return this.loadingSubject.value;
+  }
+  get isLoading() {
     return this.loadingSubject.asObservable();
   }
 }

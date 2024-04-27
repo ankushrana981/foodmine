@@ -40,10 +40,7 @@ export class RegisterComponent implements OnInit{
 
   submit(){
     this.isSubmitted = true;
-    console.log(this.registerForm.value);
-    console.log(this.registerForm,"Form")
     this.userService.register(this.registerForm.value).subscribe(()=>{
-      console.log("User Added Successfully")
       this.router.navigateByUrl(this.returnUrl);
     })
   }
