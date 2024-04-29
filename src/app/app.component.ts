@@ -6,15 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { CommonModule } from '@angular/common'; 
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,RouterOutlet,HeaderComponent
     ,StarRatingModule, HttpClientModule
-    ,LoadingComponent,
-    
+    ,LoadingComponent 
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
