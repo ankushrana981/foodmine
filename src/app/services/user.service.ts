@@ -20,10 +20,10 @@ export class UserService {
   login(userLogin: IUserLogin): Observable<User> {
     return this.http.post<User>(USER_LOGIN_URL, userLogin).pipe(tap({
       next: (user: any) => {
-        this.setUserToLocalStorage(user.data)
+        this.setUserToLocalStorage(user)
         this.userSubject.next(user.data);
         this.toastrService.success(
-          `Welcome to FoodMine ${user.data.name}`,
+          `Welcome to FoodMine ${user.name}`,
           'Login Successful'
         )
       },
@@ -37,9 +37,9 @@ export class UserService {
   register(userRegister: UserRegister):Observable<User>{
     return this.http.post<User>(USER_REGISTER_URL, userRegister).pipe(tap({
     next:(user:any)=>{
-      this.setUserToLocalStorage(user.data);
+      this.setUserToLocalStorage(user);
       this.toastrService.success(
-        `Welcome to FoodMine ${user.data.name}`,
+        `Welcome to FoodMine ${user.name}`,
         'Login Successful'
       )
     },
@@ -72,6 +72,7 @@ export class UserService {
   }
 }
 get CurrentUser(){
+  console.log(this.userSubject.value,"this.userSubject.value")
   return this.userSubject.value;
 }
 }
