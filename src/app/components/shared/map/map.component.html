@@ -1,3 +1,17 @@
 <div class="container">
-
+       <button (click)="findMyLocation()" class="find-location">
+              Find My Location
+       </button>
+       <google-map height="380px"
+            width="600px"
+            [center]="center"
+            [options]="options"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+              <map-advanced-marker (mapClick)="onMarkerClick(markerElem)"
+                #markerElem="mapAdvancedMarker"
+                [position]="position"
+              />
+            <map-info-window #infoWindow></map-info-window>
+</google-map>
 </div>
