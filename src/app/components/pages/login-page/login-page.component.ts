@@ -4,19 +4,20 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { TitleComponent } from '../../shared/title/title.component';
 import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-login-page',
   standalone: true,
   imports: [FormsModule,ReactiveFormsModule,NgIf, TitleComponent, RouterModule],
+  providers:[UserService],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
-})
-export class LoginPageComponent implements OnInit {
+})export class LoginPageComponent implements OnInit {
   loginform!:FormGroup;
   isSubmitted = false;
   returnUrl:string='';
-  constructor(private formBuilder:FormBuilder, private userService:UserService,private route:Router,private router:ActivatedRoute){
+  constructor(private formBuilder:FormBuilder,private userService:UserService ,private route:Router,private router:ActivatedRoute){
   }
   ngOnInit():void{
     this.loginform = this.formBuilder.group({
