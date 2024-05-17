@@ -5,6 +5,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './components/shared/loading/loading.component';
 import { CommonModule } from '@angular/common'; 
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,RouterOutlet,HeaderComponent
     ,StarRatingModule, HttpClientModule
-    ,LoadingComponent 
+    ,LoadingComponent,GoogleMapsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
