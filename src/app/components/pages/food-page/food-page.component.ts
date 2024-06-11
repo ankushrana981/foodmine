@@ -20,7 +20,7 @@ export class FoodPageComponent {
     ,private cartService:CartService , private router: Router) {
     this.route.params.subscribe(params=>{
     this.service.getFoodById(params.id).subscribe(food=>{
-      this.food =food
+      this.food = food; 
     })
     })
   }

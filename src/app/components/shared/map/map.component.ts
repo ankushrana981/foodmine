@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { GoogleMapsModule, MapAdvancedMarker, MapInfoWindow } from '@angular/google-maps';
 import { } from 'googlemaps'
-import { LocationService } from '../../../services/location.service';
 import { Order } from '../models/order';
+import { LocationService } from '../../../services/location.service';
 
 
 @Component({

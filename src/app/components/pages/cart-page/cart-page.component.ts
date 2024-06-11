@@ -19,7 +19,9 @@ export class CartPageComponent {
 cart!:Cart;
 constructor(private cartService:CartService){
 this.cartService.getCartObservable().subscribe(cart=>{
-  this.cart = cart;
+  if(cart){
+    this.cart = cart;
+  }
 })
 }
 
