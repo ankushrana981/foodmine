@@ -1,5 +1,5 @@
 import { NgIf } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, effect } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../../services/user.service';
 import { User } from '../models/user';
@@ -14,14 +14,17 @@ import { CartService } from '../../../services/cart.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit {
-cardQuantity:number= 2;
+cardQuantity:number= 0;
 user!:User;
 username:string=''
 constructor(private userService:UserService, private cartService:CartService) {
-  this.getCardQuantity()
-   this.cartService.getCartObservable().subscribe(cart =>{
-    console.log(cart ,"updated cart ")
-   })
+  this.getCardQuantity();
+  effect(()=>{
+    this.cartService.getCartObservable().subscribe(cart =>{
+     console.log(cart.items.length ,"updated cart ")
+     this.cardQuantity = cart.items.length
+    })
+  })
    this.userService.userObservable.subscribe(newUser=>{
     if(newUser){
       this.user = newUser

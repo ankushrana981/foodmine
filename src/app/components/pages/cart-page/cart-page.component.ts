@@ -18,7 +18,7 @@ import { TitleComponent } from '../../shared/title/title.component';
 export class CartPageComponent {
 cart!:Cart;
 constructor(private cartService:CartService){
-this.cartService.getCartObservable().subscribe(cart=>{
+this.cartService.getCartObservable().subscribe(cart =>{
   if(cart){
     this.cart = cart;
   }
